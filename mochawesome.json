@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2021-03-05T02:06:57.371Z",
-    "end": "2021-03-05T02:07:18.425Z",
-    "duration": 21054,
+    "start": "2021-03-05T02:11:13.599Z",
+    "end": "2021-03-05T02:11:39.007Z",
+    "duration": 25408,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "3861e5f2-3a0a-4887-819c-3ad9e36a0157",
+      "uuid": "2745fc33-692e-4fb1-862c-dd7ab9c8d3b0",
       "title": "",
       "fullFile": "cypress/integration/compra.spec.js",
       "file": "cypress/integration/compra.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "1cacdff5-910e-4a07-b109-2e94c864b7d3",
+          "uuid": "e537ba69-3a3f-44a0-93de-29e6e31af429",
           "title": "Compra",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Efetuar uma compra de produto",
               "fullTitle": "Compra Efetuar uma compra de produto",
               "timedOut": null,
-              "duration": 20979,
+              "duration": 25327,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.backgroundLogin();\ncy.visit('/'); //http://automationpractice.com/index.php\n//cy.pause()\nvar nomeProduto = 'Faded Short Sleeve T-shirts';\ncy.contains(nomeProduto).trigger('mouseover');\ncy.contains(nomeProduto).parent() //h5\n.siblings('div.button-container').children('a').first() //add to cart\n.click(); //Validando se o produto foi adicionado com sucesso\ncy.get('.icon-ok').parent() //h2\n.should('contain.text', 'Product successfully added to your shopping cart');\ncy.get('span#layer_cart_product_title').should('contain.text', nomeProduto);\ncy.get(\".button-container a[href$='controller=order']\").click();\ncy.get(\".cart_navigation a[href$='order&step=1'] \").click(); // Códigos caso não estiver logado \n// cy.get('#email').type('lucio.simoes@gmail.com')\n// cy.get('#passwd').type('lu301260')\n// cy.get('button#SubmitLogin').click()\n//cy.get('[type=checkbox]#addressesAreEquals').uncheck()\n//validando se o checkbox de endereço de entrega está marcado\n//asserção | atribuito | valor\ncy.get('[type=checkbox]#addressesAreEquals').should('have.attr', 'checked', 'checked');\ncy.get('[type=checkbox]#addressesAreEquals').should('have.attr', 'name', 'same');\ncy.get('button[name=\"processAddress\"]').click();\ncy.get('[type=checkbox]#cgv').check();\ncy.get('button[name=\"processCarrier\"]').click();\ncy.get('.bankwire').click();\ncy.get('.cart_navigation button[type=submit]').find('span').contains('I confirm my order').click(); //expect = explicito ou should = implicito\ncy.get('.cheque-indent strong').should('contain.text', 'Your order on My Store is complete.');\ncy.get('div.box').invoke('text').then(function (text) {\n  console.log(text.match(/[A-Z][A-Z]+/g)[1]); // 0 -> RTP\n  // 1 -> ID da order\n  //1.capturar o texto do box [X]\n  //2.filtrar o ID da order[X]\n  //3.armazenar o ID[x]\n  //4.obter o ID armazenado[x]    \n  // escrita de um arquico json com o conteúdo do pedido\n  // caminho do arquivo (sempre a apartir do root) | conteúdo do arquivo\n  cy.writeFile('cypress/fixtures/pedido.json', {\n    id: \"\".concat(text.match(/[A-Z][A-Z]+/g)[1])\n  });\n});\ncy.get(\".cart_navigation a[href$='history']\").click(); //leitura do arquivo\ncy.readFile('cypress/fixtures/pedido.json').then(function (pedido) {\n  cy.get('tr.first_item .history_link a').should('contain.text', pedido.id);\n});",
               "err": {},
-              "uuid": "e7e338e2-d7e4-43ff-bf78-bb674038fb2e",
-              "parentUUID": "1cacdff5-910e-4a07-b109-2e94c864b7d3",
+              "uuid": "1b79df39-9ae2-4899-b5c8-d58258f711b7",
+              "parentUUID": "e537ba69-3a3f-44a0-93de-29e6e31af429",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "e7e338e2-d7e4-43ff-bf78-bb674038fb2e"
+            "1b79df39-9ae2-4899-b5c8-d58258f711b7"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 20979,
+          "duration": 25327,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
